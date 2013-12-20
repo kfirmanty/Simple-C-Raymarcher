@@ -24,11 +24,13 @@ int main(int argc, char* argv[]){
 		return -1;
 	}
 	FILE* file = fopen("test.ppm","wb");
-	
+	if(file == NULL){
+		printf(FAILED_TO_CREATE_FILE);
+	}
 	createFileHeader(file,width,height);
 	
 	Vector3 direction;
-	direction = (Vector3){.x=0.0,.y=0.0,.z=1};
+	direction = (Vector3){.x=0.5,.y=0.5,.z=1};
 	Vector3 from;
 	from = (Vector3){.x=0,.y=0,.z=-100};
 	int x = 0;
@@ -46,8 +48,8 @@ int main(int argc, char* argv[]){
 		}
 		fprintf(file,"\n");
 		if(y % sampleRate == 0){
+			printf("\r%i\%% done",loadCount*10);
 			loadCount++;
-			printf("\r%i created",loadCount*10);
 		}
 	}
 	fclose(file);
