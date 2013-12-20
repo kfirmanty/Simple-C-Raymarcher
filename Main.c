@@ -26,6 +26,7 @@ int main(int argc, char* argv[]){
 	FILE* file = fopen("test.ppm","wb");
 	if(file == NULL){
 		printf(FAILED_TO_CREATE_FILE);
+		return -1;
 	}
 	createFileHeader(file,width,height);
 	
