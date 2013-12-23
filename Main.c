@@ -33,7 +33,7 @@ int main(int argc, char* argv[]){
 	Vector3 direction;
 	direction = (Vector3){.x=0.5,.y=0.5,.z=1};
 	Vector3 from;
-	from = (Vector3){.x=0,.y=0,.z=-100};
+	from = (Vector3){.x=-100,.y=-100,.z=-100};
 	int x = 0;
 	int y = 0;
 	int sampleRate = height/10;
@@ -42,8 +42,6 @@ int main(int argc, char* argv[]){
 	for(y = 0; y<height; y++){
 		fprintf(file," ");
 		for(x = 0; x<width; x++){	
-			from.x = x-100;
-			from.y = y-100;
 			int value = (int)rayMarch(from,direction,maxIterations);
 			fprintf(file,"%d %d %d ",value,value,value);	
 		}
