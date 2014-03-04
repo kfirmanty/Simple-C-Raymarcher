@@ -42,7 +42,9 @@ int main(int argc, char* argv[]){
 	for(y = 0; y<height; y++){
 		fprintf(file," ");
 		for(x = 0; x<width; x++){	
-			int value = (int)rayMarch(from,direction,maxIterations);
+			Vector3 offset;
+			offset = (Vector3){.x = x, .y = y, .z = 0};
+			int value = (int)rayMarch(vec3Add(from,offset),direction,maxIterations);
 			fprintf(file,"%d %d %d ",value,value,value);	
 		}
 		fprintf(file,"\n");
