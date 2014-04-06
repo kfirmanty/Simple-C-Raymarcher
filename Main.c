@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
 	const int width = atoi(argv[2]);
 	const int height = atoi(argv[3]);
 	const int maxIterations = atoi(argv[4]);
-	if(width == 0 || height == 0){
+	if(width <= 0 || height <= 0){
 		printf("%s",BAD_WIDTH_HEIGHT_OR_MAX_ITERATIONS);
 		return -1;
 	}
